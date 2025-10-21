@@ -1,4 +1,4 @@
-name: Simple Addition
+name: Convolution Calculation
 
 on:
   push:
@@ -7,9 +7,32 @@ on:
     branches: [ main ]
 
 jobs:
-  add:
+  Convolution-Calculation:
     runs-on: ubuntu-latest
     steps:
-      - name: Run simple addition
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
         run: |
-          python -c "print('1 + 1 + 1 =', 1+1+1)"
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib
+      - name: Run convolution calculation
+        run: |
+          python -c "
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 定义输入信号和卷积核
+signal = np.array([1, 2, 3, 4, 5, 4, 3, 2, 1])
+kernel = np.array([0.5, 1, 0.5])
+
+# 执行卷积计算
+result = np.convolve(signal, kernel, mode='valid')
+
+print('输入信号:', signal)
+print('卷积核:', kernel)
+print('卷积结果:', result)"
