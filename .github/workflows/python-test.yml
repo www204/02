@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Run simple addition
         run: |
-          python -c "print('1 + 1 =', 1+1)"
+          python -c "print('1 + 1 + 1 =', 1+1+1)"
