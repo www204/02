@@ -23,16 +23,16 @@ jobs:
       - name: Run convolution calculation
         run: |
           python -c "
-import numpy as np
-import matplotlib.pyplot as plt
+          import numpy as np
+          import matplotlib.pyplot as plt
 
-# 定义输入信号和卷积核
-signal = np.array([1, 2, 3, 4, 5, 4, 3, 2, 1])
-kernel = np.array([0.5, 1, 0.5])
+          # 定义输入信号和卷积核
+          signal = np.array([1, 2, 3, 4, 5, 4, 3, 2, 1])
+          kernel = np.array([0.5, 1, 0.5])
 
-# 执行卷积计算
-result = np.convolve(signal, kernel, mode='valid')
+          # 执行卷积计算
+          result = np.convolve(signal, kernel, mode='valid')
 
-print('输入信号:', signal)
-print('卷积核:', kernel)
-print('卷积结果:', result)"
+          print('输入信号:', signal)
+          print('卷积核:', kernel)
+          print('卷积结果:', result)"
